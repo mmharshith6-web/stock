@@ -1,85 +1,93 @@
-# Final-Year-Machine-Learning-Stock-Price-Prediction-Project
-Final Year B.tech Project on Machine Learning Stock Prediction through Deep Learning
+# Stock Price Prediction Project
 
-# Stock-Price-Prediction
-Top Class Stock Price Prediction Project through Machine Learning Algorithms for Google. Easy Understanding and Implementation.
+## Overview
+This is a machine learning-based stock price prediction application with a futuristic UI. The application uses LSTM neural networks to predict stock prices and provides a responsive web interface for visualization.
 
-### Project PPT [**LINK**](https://github.com/Vatshayan/Final-Year-Machine-Learning-Stock-Price-Prediction-Project/blob/main/Stock_price%20_prediction.pptx)
+## Features
+- Real-time stock data visualization
+- LSTM-based price prediction
+- Responsive and futuristic UI with animations
+- Developer information section
+- Multiple stock symbol support
 
-### Stock Price Prediction :
+## Technologies Used
+- Python
+- Flask (Backend)
+- HTML/CSS/JavaScript (Frontend)
+- Chart.js (Data Visualization)
+- Pandas/Numpy (Data Processing)
 
-Stock (also known as equity) is a security that represents the ownership of a fraction of a corporation. This entitles the owner of the stock to a proportion of the corporation's assets and profits equal to how much stock they own. Units of stock are called "shares." 
-A stock is a general term used to describe the ownership certificates of any company.
-Stock prices change everyday by market forces. By this we mean that share prices change because of supply and demand. If more people want to buy a stock (demand) than sell it (supply), then the price moves up. Conversely, if more people wanted to sell a stock than buy it, there would be greater supply than demand, and the price would fall.
-Understanding supply and demand is easy. 
-So, why do stock prices change? The best answer is that nobody really knows for sure. Some believe that it isn't possible to predict how stocks will change in price while others think that by drawing charts and looking at past price movements, you can determine when to buy and sell. The only thing we do know as a certainty is that stocks are volatile and can change in price extremely rapidly.
+## Deployment on Vercel
 
+### Prerequisites
+1. A Vercel account (https://vercel.com)
+2. This repository pushed to GitHub/GitLab/Bitbucket
 
-### Understanding the Problem Statement
-We’ll dive into the implementation part of this Project soon, but first it’s important to establish what we’re aiming to solve. Broadly, stock market analysis is divided into two parts – Fundamental Analysis and Technical Analysis.
-Fundamental Analysis involves analyzing the company’s future profitability on the basis of its current business environment and financial performance.
-Technical Analysis, on the other hand, includes reading the charts and using statistical figures to identify the trends in the stock market.
-As you might have guessed, our focus will be on the technical analysis and visualization part. We’ll be using a dataset from Google stock Price test and train.
- 
- 
-### Implementation:
+### Deployment Steps
+1. Go to https://vercel.com/dashboard
+2. Click "New Project"
+3. Import this repository
+4. Configure the project:
+   - Framework Preset: Other
+   - Build Command: `pip install -r requirements.txt`
+   - Output Directory: ` `
+   - Install Command: ` `
+5. Add Environment Variables (if using real stock data):
+   - `ALPHA_VANTAGE_API_KEY` - Your Alpha Vantage API key
+6. Click "Deploy"
 
-1.Using Sckiit Learning( Machine Learning model)
+### Environment Variables
+To use real stock data instead of sample data:
+1. Get a free API key from [Alpha Vantage](https://www.alphavantage.co/support/#api-key)
+2. Add it as an environment variable in your Vercel project settings:
+   - Key: `ALPHA_VANTAGE_API_KEY`
+   - Value: Your API key
 
-2.Data Preprocessing using dataset
+## Local Development
 
-3.Visualization of Dataset
+### Prerequisites
+- Python 3.8 or higher
+- pip package manager
 
-4.Feature Scaling 
+### Installation
+1. Clone the repository:
+   ```
+   git clone <repository-url>
+   cd stock-price-prediction
+   ```
 
-5.Preparing the Datasets for training 
+2. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
 
-6.Reshaping the datasets
+3. Run the application:
+   ```
+   python app.py
+   ```
 
-7.Model development
+4. Open your browser and navigate to http://localhost:5000
 
-8.Implementation of sequential, dense, LSTM and dropout.
+## Project Structure
+```
+├── app.py                 # Flask application
+├── stock_predictor.py     # Stock prediction model
+├── requirements.txt       # Python dependencies
+├── vercel.json           # Vercel deployment configuration
+├── .gitignore            # Git ignore file
+├── templates/            # HTML templates
+│   └── index.html        # Main application page
+├── static/               # Static assets (if any)
+└── README.md             # This file
+```
 
-9.Preprocessing the Data
+## Developer Information
+- **Name**: Harshith
+- **Email**: mmharshith6@gmail.com
+- **Phone**: 7411801829
+- **GitHub**: https://github.com/mmharshith6-web
+- **LinkedIn**: https://www.linkedin.com/in/mmcodes/
+- **Portfolio**: https://portfolio2-mu-puce.vercel.app/
 
-10.Predicting the Output
-
-11.Result visualization 
- 
-### Research Paper
-
-Project is totally based on research papers as project predict output using LSTM based deep learning models:
-
-1. https://arxiv.org/abs/2009.10819
-
-2. https://www.aclweb.org/anthology/W19-6403.pdf
-
-3. https://www.sciencedirect.com/science/article/pii/S1877050920304865
-
-### Youtube Video of this Project: https://www.youtube.com/watch?v=44u5oU9MQGg
-
-
-<h1 align="center"> नमस्ते (Namaste) 🙏🏻 , I'm Shivam Vatshayan <img src="https://raw.githubusercontent.com/ABSphreak/ABSphreak/master/gifs/Hi.gif" width="30px"> ! </h1>
-<h3 align="center">I'm a Developer from India ❤</h3>
-
-**You Can use this Beautiful Project for your college Project and get good marks too.**
-
-Email me Now **vatshayan007@gmail.com** to get this Full Project Code, PPT, Report, Synopsis, Video Presentation and Research paper of this Project.
-
-💌 Feel free to contact me for any kind of help on projects.
- 
-### Need Code, Documents & Explanation video ? 
-
-## How to Reach me :
-
-### Mail : vatshayan007@gmail.com 
-
-### WhatsApp: **+91 9310631437** (Helping 24*7) **[CHAT](https://wa.me/message/CHWN2AHCPMAZK1)** 
-
-### Website : https://www.finalproject.in/
-
-### 1000 Computer Science Projects : https://www.computer-science-project.in/
-
-### Youtube Video of this Project: https://www.youtube.com/watch?v=44u5oU9MQGg
-
-Mail/Message me for Projects Help 🙏🏻
+## License
+This project is for educational purposes only.
