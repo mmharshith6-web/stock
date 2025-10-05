@@ -1,11 +1,11 @@
 # Stock Price Prediction Project
 
 ## Overview
-This is a machine learning-based stock price prediction application with a futuristic UI. The application uses LSTM neural networks to predict stock prices and provides a responsive web interface for visualization.
+This is a stock price prediction application with a futuristic UI. The application uses statistical methods to predict stock prices and provides a responsive web interface for visualization.
 
 ## Features
 - Real-time stock data visualization
-- LSTM-based price prediction
+- Statistical-based price prediction
 - Responsive and futuristic UI with animations
 - Developer information section
 - Multiple stock symbol support
@@ -16,6 +16,13 @@ This is a machine learning-based stock price prediction application with a futur
 - HTML/CSS/JavaScript (Frontend)
 - Chart.js (Data Visualization)
 - Pandas/Numpy (Data Processing)
+
+## Performance Optimizations
+To ensure fast deployment and loading times:
+- Removed heavy TensorFlow dependencies
+- Implemented lightweight statistical prediction algorithms
+- Optimized for Vercel deployment
+- Reduced overall application size
 
 ## Deployment on Vercel
 
@@ -71,7 +78,6 @@ To use real stock data instead of sample data:
 ## Project Structure
 ```
 ├── app.py                 # Flask application
-├── stock_predictor.py     # Stock prediction model
 ├── requirements.txt       # Python dependencies
 ├── vercel.json           # Vercel deployment configuration
 ├── .gitignore            # Git ignore file
