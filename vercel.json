@@ -10,9 +10,7 @@
           "templates/**",
           "static/**",
           "*.py",
-          "*.txt",
-          "*.csv",
-          "*.pkl"
+          "*.txt"
         ]
       }
     }
@@ -26,5 +24,10 @@
   "env": {
     "FLASK_APP": "app.py",
     "FLASK_ENV": "production"
+  },
+  "build": {
+    "env": {
+      "PYTHON_VERSION": "3.9"
+    }
   }
 }

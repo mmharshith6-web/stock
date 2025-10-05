@@ -4,6 +4,7 @@ import numpy as np
 import os
 import requests
 from datetime import datetime, timedelta
+import json
 
 # Initialize Flask app
 app = Flask(__name__, static_folder='static', template_folder='templates')
@@ -76,6 +77,25 @@ def load_sample_data():
     
     return df
 
+def simple_linear_prediction(prices, days):
+    """Simple linear prediction based on recent trend"""
+    if len(prices) < 2:
+        return [prices[-1]] * days
+    
+    # Calculate average change over last 5 days
+    recent_prices = prices[-5:] if len(prices) >= 5 else prices
+    changes = [recent_prices[i] - recent_prices[i-1] for i in range(1, len(recent_prices))]
+    avg_change = sum(changes) / len(changes) if changes else 0
+    
+    # Predict future prices
+    predictions = []
+    last_price = prices[-1]
+    for i in range(days):
+        next_price = last_price + avg_change * (i + 1)
+        predictions.append(float(max(next_price, 0.01)))
+    
+    return predictions
+
 def get_stock_data(symbol):
     """Get stock data for a symbol, fetching real data if API key is provided"""
     global stock_data
@@ -111,16 +131,11 @@ def predict():
         # Get stock data
         df = get_stock_data(symbol)
         
-        # Generate simulated future predictions
-        last_price = df['Close'].iloc[-1]
-        future_predictions = []
+        # Get closing prices for prediction
+        closing_prices = df['Close'].tolist()
         
-        # Simulate future prices with random walk
-        current_price = last_price
-        for _ in range(days):
-            change = np.random.normal(0, 2)  # Random change
-            current_price = current_price * (1 + change/100)
-            future_predictions.append(float(max(current_price, 0.01)))
+        # Generate predictions using simple linear method
+        future_predictions = simple_linear_prediction(closing_prices, days)
         
         # Create future dates
         last_date = df['Date'].iloc[-1]
