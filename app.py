@@ -12,7 +12,7 @@ app = Flask(__name__, static_folder='static', template_folder='templates')
 stock_data = {}
 
 # Alpha Vantage API key (you would need to get your own free API key from https://www.alphavantage.co/support/#api-key)
-ALPHA_VANTAGE_API_KEY = "YOUR_API_KEY_HERE"  # Replace with your actual API key
+ALPHA_VANTAGE_API_KEY = os.environ.get("ALPHA_VANTAGE_API_KEY", "YOUR_API_KEY_HERE")  # Use environment variable
 
 def fetch_real_stock_data(symbol):
     """Fetch real stock data from Alpha Vantage API"""
@@ -175,5 +175,6 @@ def historical():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+# Vercel requires the app to be exported as 'app'
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
