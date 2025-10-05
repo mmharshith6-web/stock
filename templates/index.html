@@ -549,10 +549,11 @@
             box-shadow: 0 0 20px rgba(0, 102, 255, 0.2);
             backdrop-filter: blur(10px);
             position: relative;
-            overflow: hidden;
+            /* overflow: hidden; */ /* Removed to prevent clipping issues */
             opacity: 0;
             transform: translateY(50px);
             transition: all 1s ease;
+            z-index: 0; /* Ensure proper layering */
         }
         
         .developer-section.visible {
@@ -719,6 +720,8 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            z-index: 0; /* Ensure proper layering */
+            pointer-events: auto; /* Ensure the container doesn't block events */
         }
         
         .info-item::before {
@@ -733,6 +736,7 @@
                 rgba(0, 245, 255, 0.2), 
                 transparent);
             transition: 0.5s;
+            z-index: 0; /* Ensure the pseudo-element is behind the content */
         }
         
         .info-item:hover::before {
@@ -763,13 +767,15 @@
             color: var(--accent);
         }
         
-        .info-item p, .info-item a {
+        .info-item a {
             font-size: 0.9rem;
             color: var(--light);
             text-decoration: none;
             transition: color 0.3s ease;
             position: relative;
             display: inline-block;
+            z-index: 1; /* Ensure links are above the ::before pseudo-element */
+            pointer-events: auto; /* Ensure links are clickable */
         }
         
         .info-item a:hover {
@@ -841,6 +847,7 @@
                 rgba(0, 102, 255, 0.1));
             opacity: 0.5;
             animation: holographic 3s infinite alternate;
+            z-index: -1; /* Ensure the holographic effect is behind the content */
         }
         
         @keyframes holographic {
